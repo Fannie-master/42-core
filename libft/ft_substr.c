@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
@@ -17,3 +16,12 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	ft_strlcpy(ret, s + start, len + 1);
 	return (ret);
 }
+
+/*int main(void)
+{
+	char *str = "hello world";
+	char *ret = ft_substr(str, 0, 5);
+	printf("%s\n", ret);
+	free (ret);
+	return (0);
+}*/

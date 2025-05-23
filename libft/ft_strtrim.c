@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static int	ft_isset(char c, const char *set)
@@ -17,9 +15,9 @@ static int	ft_isset(char c, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	const char	*start;
-	const char	*end;
-	const char	*ret;
+	char	*start;
+	char	*end;
+	char	*ret;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -34,3 +32,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	return (ret);
 }
+
+/*int	main(void)
+{
+	char	*s1 = "abcd abcd abcd";
+	char	*set = "abcd";
+
+	printf("%s\n", ft_strtrim(s1, set));
+}*/
