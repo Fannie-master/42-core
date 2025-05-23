@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -11,7 +11,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb > SIZE_MAX / size)
 		return (NULL);
 	ret = malloc(nmemb * size);
-	if (!arr)
+	if (!ret)
 		return (NULL);
 	i = 0;
 	while (i < nmemb * size)
@@ -20,4 +20,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		i++;
 	}
 	return (ret);
+}
+
+int	main(void)
+{
+	char	*str;
+
+	str = ft_calloc(5, sizeof(char));
+	printf("%s\n", str);
+	free(str);
+	return (0);
 }
