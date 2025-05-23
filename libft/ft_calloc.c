@@ -22,7 +22,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ret);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*str;
 
@@ -30,4 +30,4 @@ int	main(void)
 	printf("%s\n", str);
 	free(str);
 	return (0);
-}
+}*/
