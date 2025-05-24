@@ -1,5 +1,23 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/24 17:42:48 by cafang            #+#    #+#             */
+/*   Updated: 2025/05/24 17:42:48 by cafang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+/* use f function for each char in s, and return new string
+	char (*f)(unsigned int, char)
+	function pointer to realize function transfer
+	return: char
+	unsigned int: the char's index in s
+	char: char itself
+*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -20,3 +38,19 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ret[i] = '\0';
 	return (ret);
 }
+
+/*static char	ft_add_index(unsigned int i, char c)
+{
+	return(c + i);
+}
+
+int	main(void)
+{
+	char	*s = "abcd";
+	char	*ret;
+
+	ret = ft_strmapi(s, ft_add_index);
+	printf("%s\n", ret);
+	free(ret);
+	return (0);
+}*/

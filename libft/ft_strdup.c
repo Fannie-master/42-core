@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/24 10:23:18 by cafang            #+#    #+#             */
+/*   Updated: 2025/05/24 10:23:18 by cafang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+/* we can use ft_strlen to get the len of s1 for malloc
+	(len + 1) is for '\0'
+	ft_strlcpy can copy from s1 to ret
+*/
 
 char	*ft_strdup(const char *s1)
 {

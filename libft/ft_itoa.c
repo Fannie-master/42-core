@@ -1,5 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/24 17:06:26 by cafang            #+#    #+#             */
+/*   Updated: 2025/05/24 17:06:26 by cafang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	count_len(long n)
 {
@@ -30,23 +41,31 @@ char	*ft_itoa(int n)
 	ret = malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (NULL);
+	if (num == 0)
+	{
+		ret[0] = '0';
+		return (ret);
+	}
 	if (num < 0)
 	{
 		ret[0] = '-';
 		num = -num;
 	}
-	if (num == 0)
-	{
-		ret[0] = '0';
-		ret[1] = '\0';
-		return (ret);
-	}
-	ret[len] = '\0';
 	while (num > 0)
 	{
-		--len;
-		ret[len] = num % 10 + '0';
+		ret[--len] = (num % 10) + '0';
 		num = num / 10;
 	}
 	return (ret);
 }
+
+/*int	main(void)
+{
+	int	n = -10;
+	char	*s;
+	
+	s = ft_itoa(n);
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}*/

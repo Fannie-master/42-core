@@ -1,4 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/24 10:54:47 by cafang            #+#    #+#             */
+/*   Updated: 2025/05/24 10:54:47 by cafang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+/* s1, s2 are both char const * can't be alter, 
+	so we need a new variable: char *ret to receive the final string.
+	we use ft_strlen to get the total len, then use malloc for allocate memory
+	ft_strlcpy can copy from s1 to ret and return the len,
+	then use ft_strlcat to cat s2 behind ret(which has become s1).
+*/
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
