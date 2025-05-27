@@ -17,12 +17,29 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*last;
 
 	if (*lst == NULL)
-	{	
+	{
 		*lst = new;
 		return ;
 	}
 	last = *lst;
 	while (last->next != NULL)
+	{
 		last = last->next;
+	}
 	last->next = new;
 }
+
+/*int	main(void)
+{
+	t_list	*lst = ft_lstnew("hello");
+	t_list	*new = ft_lstnew("world");
+
+	ft_lstadd_back(&lst, new);
+	t_list	*current = lst;
+	while(current)
+	{
+		printf("%s\n", (char *)current->content);
+		current  = current->next;
+	}
+	return (0);
+}*/
