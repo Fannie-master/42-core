@@ -19,8 +19,8 @@ int	ft_tolower(int c)
 	return (c);
 }
 
-int	main(void)
-/*{
+/*int	main(void)
+{
 	int	c;
 
 	c = 'A';

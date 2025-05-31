@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/*1.start > ft_strlen(s)  we should malloc 1 for '\0'
-2.if not over the boundary, we should know the actual len,
-then we can use malloc to allocate memory.
+/*  1.start > ft_strlen(s)  we should malloc 1 for '\0'
+	2.if not over the boundary, we should know the actual len,
+	then we can use malloc to allocate memory.
 ! explain: if (ft_strlen(s + start) < len); 
 in case the remaining len is short, can't meet the required len in main
 we should get actual len = ft_strlen (s + start), 

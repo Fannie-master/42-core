@@ -13,7 +13,7 @@
 #include "libft.h"
 /*function: according to char c to divide s into several substrings
 	1. we should know how many substirngs in s (use ft_count)
-	2. 
+	2. then  allocate memory for ret
 */
 
 static size_t	ft_count(char const *s, char c)
