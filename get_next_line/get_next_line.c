@@ -6,7 +6,7 @@
 /*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:10 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 10:26:32 by cafang           ###   ########.fr       */
+/*   Updated: 2025/06/09 15:07:46 by cafang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	int	read_update(int fd, char **storage, char *temp)
 
 	while (1)
 	{
-		len = read(fd, temp, BUTTER_SIZE);
+		len = read(fd, temp, BUFFER_SIZE);
 		if (len <= 0)
 			return (len);
 		temp[len] = '\0';
@@ -39,11 +39,11 @@ static	int	read_update(int fd, char **storage, char *temp)
 			return (-1);
 		if (ft_strchr(*storage, '\n'))
 			break ;
-		return (len);
 	}
+	return (len);
 }
 
-static	char	get_line(char **storage)
+static	char	*get_line(char **storage)
 {
 	char	*line;
 	char	*temp;
@@ -51,12 +51,12 @@ static	char	get_line(char **storage)
 
 	temp = *storage;
 	len = 0;
-	while ((*storage)[len] != '\0' && (*sorage)[len] != '\n')
+	while ((*storage)[len] != '\0' && (*storage)[len] != '\n')
 		len++;
 	if ((*storage)[len] == '\n')
 		len++;
 	*storage = ft_strdup(*storage + len);
-	if (!*storage)
+	if (!(*storage))
 	{
 		free(temp);
 		return (NULL);
@@ -85,14 +85,14 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	temp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!re_str)
+	if (!temp)
 		return (NULL);
 	len = read_update(fd, &storage, temp);
 	free (temp);
 	temp = NULL;
 	if (!storage)
 		return (NULL);
-	if (count == 0 && ft_strlen(storage) == 0)
+	if (len == 0 && ft_strlen(storage) == 0)
 	{
 		free(storage);
 		storage = NULL;
@@ -100,4 +100,26 @@ char	*get_next_line(int fd)
 	}
 	new_line = get_line(&storage);
 	return (new_line);
+}
+
+# include <fcntl.h>
+# include <stdio.h>
+
+int		main(void)
+{
+	int		fd;
+	char	*line;
+
+	fd = open("test1.txt", O_RDONLY);
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	free(line);
+	line = get_next_line (fd);
+	printf("%s\n", line);
+	free(line);
+	line = get_next_line (fd);
+	printf("%s\n", line);
+	free(line);
+	close(fd);
+	return (0);
 }

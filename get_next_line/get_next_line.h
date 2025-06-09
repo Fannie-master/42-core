@@ -6,15 +6,15 @@
 /*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:36 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 12:54:38 by cafang           ###   ########.fr       */
+/*   Updated: 2025/06/09 15:03:20 by cafang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUTTER_SIZE
-#  define BUTTER_SIZE 10
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
 # endif
 
 # include <stdlib.h>
