@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:10 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 16:26:06 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/09 16:35:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,24 +102,27 @@ char	*get_next_line(int fd)
 	return (new_line);
 }
 
-# include <fcntl.h>
-# include <stdio.h>
+// # include <fcntl.h>
+// # include <stdio.h>
 
-int		main(void)
-{
-	int		fd;
-	char	*line;
+// int		main(void)
+// {
+// 	int		fd;
+// 	char	*line;
 
-	fd = open("test1.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	free(line);
-	line = get_next_line (fd);
-	printf("%s\n", line);
-	free(line);
-	line = get_next_line (fd);
-	printf("%s\n", line);
-	free(line);
-	close(fd);
-	return (0);
-}
+// 	fd = open("test1", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	printf("line1: %s", line);
+// 	free(line);
+// 	line = get_next_line (fd);
+// 	printf("line2: %s", line);
+// 	free(line);
+// 	line = get_next_line (fd);
+// 	printf("line3: %s", line);
+// 	free(line);
+// 	line = get_next_line (fd);
+// 	printf("line4: %s\n", line);
+// 	free(line);
+// 	close(fd);
+// 	return (0);
+// }
