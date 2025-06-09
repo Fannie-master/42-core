@@ -6,7 +6,7 @@
 /*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:27 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 10:30:19 by cafang           ###   ########.fr       */
+/*   Updated: 2025/06/09 16:03:27 by cafang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len;
+	size_t	i;
 
-	len = 0;
-	while (*s++)
-		len++;
-	return (len);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
 char	*ft_strjoin(char const *s1, char const*s2)
@@ -65,7 +65,7 @@ char	*ft_strdup(const char *s1)
 		ret[j] = s1[j];
 		j++;
 	}
-	ret[j] = '\0';
+	ret[i] = '\0';
 	return (ret);
 }
 
