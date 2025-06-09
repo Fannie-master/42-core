@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:27 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 16:03:27 by cafang           ###   ########.fr       */
+/*   Updated: 2025/06/09 16:19:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strjoin(char const *s1, char const*s2)
 		return (0);
 	while (s1[i] != '\0')
 		i++;
-	while (s2[i] != '\0')
+	while (s2[j] != '\0')
 		j++;
 	str = malloc((i + j + 1) * sizeof(char));
 	if (!str)
