@@ -3,18 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 10:21:10 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/09 16:35:45 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/10 19:00:56 by cafang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* if we already  have something in storage, we use strjoin
-	if nothing in storage, we use strdup to creat new.
+/* The aim of this function: read content according to 
+	fd = open("test1", O_RDONLY) and update storage.
 
+	why use ssize_t len? because the return type of read function
+	ssize_t read(int fd, void *buf, size_t count)
+
+	while (1) is an infinite loop until meet return or break.
+	if we already  have something in storage, we use strjoin
+	if nothing in storage, we use strdup to creat new.
+	
+	return (len): 
+	(1) len > 0, content has read
+	(2) len == 0, end of file
+	(3) len < 0, read error.
 */
 static	int	read_update(int fd, char **storage, char *temp)
 {
@@ -43,6 +54,13 @@ static	int	read_update(int fd, char **storage, char *temp)
 	return (len);
 }
 
+/* The aim of this function: get a line(include '\n') from storage
+	and leave the remaining characters in storage. 
+	For example, we set BUFFER_SIZE=20, and first read "hello\nworl"
+	so line is "hello\n"
+	and the remaining characters in storage is "worl"
+	End of a line: '\n' or '\0'
+*/
 static	char	*get_line(char **storage)
 {
 	char	*line;
@@ -71,9 +89,12 @@ static	char	*get_line(char **storage)
 	return (line);
 }
 
-/* clear static char *storage to store the remaining str behind \n
-	after read(). 
-
+/* The aim of this function: 
+	get the file(in main function means test1) content line by line.
+	Continuously call the read_update function to read data 
+	from the file and store the read data in storage
+	then use the get_line function to extract a line of data 
+	from storage and return it.
 */
 char	*get_next_line(int fd)
 {
