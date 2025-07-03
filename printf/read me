@@ -141,5 +141,38 @@ int handle_format(char c, va_list args)
 
 3.7 ft_puthex_pointer(void *p, int fd) 0x 打印带有前缀的十六进制指针
 
+static int  ft_re(unsigned long address, char *hex, int fd)
+{
+    int  count; 
+    char    c;
+    
+    count = 0;
+    if (address == 0)
+        return (count);
+    count += ft_re(address / 16, hex, fd);
+    c = hex[address % 16];
+    count += write(fd, &c, 1);
+    return (count);
+}
+
+int  ft_puthex_pointer(void *p, int fd)
+{
+    unsigned long address;
+    char  *hex;
+    int   count;
+    
+    if (!p)
+        return (write(fd, "(nil)", 5));//(nil) 是对空指针（NULL）的人类可读形式的字符串表示
+    address = (unsigned long)p;
+    hex = "0123456789abcdef";
+    count = 0;
+    count  += write(fd, "0x", 2);
+    if (address == 0)
+        count += (write(fd, "0", 1));
+    else
+        count += ft_re(address, hex, fd);
+    return (count);
+}
+
 4. 头文件
 5. 编译静态库, libftprintf.a

@@ -6,26 +6,26 @@
 /*   By: cafang <cafang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 16:14:09 by cafang            #+#    #+#             */
-/*   Updated: 2025/06/13 16:19:05 by cafang           ###   ########.fr       */
+/*   Updated: 2025/07/03 16:19:41 by cafang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_putstr(char *s, int fd)
+int	ft_putstr(char *s, int fd)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!s)
-    {
-        write(fd, "(null)", 6);
-        return (6);
-    }
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
-    return (i); 
+	i = 0;
+	if (!s)
+	{
+		write(fd, "(null)", 6);
+		return (6);
+	}
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	return (i);
 }
